@@ -32,6 +32,12 @@ public class CreateSessionActivity extends Activity {
 		getMenuInflater().inflate(R.menu.create_session, menu);
 		return true;
 	}
+	
+    @Override
+    protected void onStop() {
+    	super.onStop();
+    	this.finish();
+    }
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
