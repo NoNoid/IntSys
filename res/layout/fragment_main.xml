@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="28dp"
-        android:text="go to Session" />
+        android:layout_marginBottom="59dp"
+        android:text="Neue Session erstellen" />
 
 </RelativeLayout>

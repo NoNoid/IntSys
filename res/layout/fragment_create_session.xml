@@ -11,6 +11,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="Here are Options for creating a new Session \n Click OK to continue" />
+
+    <Button
+        android:id="@+id/confirmCreateSessionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"
+        android:text="OK" />
 
 </RelativeLayout>
