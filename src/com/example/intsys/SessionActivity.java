@@ -1,19 +1,3 @@
-/*
- * Copyright 2012 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.intsys;
 
 import android.app.ActionBar;
@@ -56,10 +40,6 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
-
-        // Specify that the Home/Up button should not be enabled, since there is no hierarchical
-        // parent.
-        //actionBar.setHomeButtonEnabled(false);
 
         // Specify that we will be displaying tabs in the action bar.
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -110,13 +90,9 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
      */
     public static class AppSectionsPagerAdapter extends FragmentPagerAdapter {
     	private final int numberOfTabs = 3;
-//    	private Fragment[] fragments = new Fragment[numberOfTabs];
     	
         public AppSectionsPagerAdapter(FragmentManager fm) {
             super(fm);
-//            fragments[0] = new DummySectionFragment();
-//            fragments[1] = new DummySectionFragment();
-//            fragments[2] = new DummySectionFragment();
         }
 
         @Override
@@ -182,47 +158,6 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
         }
     }
 
-//    /**
-//     * A fragment that launches other parts of the demo application.
-//     */
-//    public static class LaunchpadSectionFragment extends Fragment {
-//
-//        @Override
-//        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                Bundle savedInstanceState) {
-//            View rootView = inflater.inflate(R.layout.fragment_section_launchpad, container, false);
-//
-//            // Demonstration of a collection-browsing activity.
-//            rootView.findViewById(R.id.demo_collection_button)
-//                    .setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//                            Intent intent = new Intent(getActivity(), CollectionDemoActivity.class);
-//                            startActivity(intent);
-//                        }
-//                    });
-//
-//            // Demonstration of navigating to external activities.
-//            rootView.findViewById(R.id.demo_external_activity)
-//                    .setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//                            // Create an intent that asks the user to pick a photo, but using
-//                            // FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET, ensures that relaunching
-//                            // the application from the device home screen does not return
-//                            // to the external activity.
-//                            Intent externalActivityIntent = new Intent(Intent.ACTION_PICK);
-//                            externalActivityIntent.setType("image/*");
-//                            externalActivityIntent.addFlags(
-//                                    Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-//                            startActivity(externalActivityIntent);
-//                        }
-//                    });
-//
-//            return rootView;
-//        }
-//    }
-
     /**
      * A dummy fragment representing a section of the app, but that simply displays dummy text.
      */
@@ -248,7 +183,6 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
         public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_camera_mockup, container, false);
             Bundle args = getArguments();
-            //((TextView) rootView.findViewById(android.R.id.text1)).setText("CameraMockUpFragment");
             return rootView;
         }
     }
@@ -261,7 +195,6 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
         public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_session_view_mock, container, false);
             Bundle args = getArguments();
-            //((TextView) rootView.findViewById(android.R.id.text1)).setText("CameraMockUpFragment");
             return rootView;
         }
     }
@@ -284,7 +217,6 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
 			);
             
             Bundle args = getArguments();
-            //((TextView) rootView.findViewById(android.R.id.text1)).setText("CameraMockUpFragment");
             return rootView;
         }
     }
