@@ -165,7 +165,20 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return "Section " + (position + 1);
+            switch (position) {
+	            case 0: {
+	            	return "Camera";
+	            }
+	            case 1: {
+	            	return "Session View";
+	            }
+	            case 2: {
+	            	return "Session Options";
+	            }
+	            default: {
+	            	return "Anonymous Tab";
+	            }
+            }
         }
     }
 
