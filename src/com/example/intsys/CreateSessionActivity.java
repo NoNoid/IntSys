@@ -3,6 +3,7 @@ package com.example.intsys;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -57,6 +58,17 @@ public class CreateSessionActivity extends Activity {
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_create_session,
 					container, false);
+			
+            rootView.findViewById(R.id.confirmCreateSessionButton).setOnClickListener(
+				new View.OnClickListener() {
+	        		@Override
+	        		public void onClick(View view) {
+            			Intent intent = new Intent(getActivity(), SessionActivity.class);
+            			getActivity().startActivity(intent);
+	        		}
+	    		}							
+			);
+			
 			return rootView;
 		}
 	}
