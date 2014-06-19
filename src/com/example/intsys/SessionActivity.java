@@ -124,8 +124,6 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
             switch (i) {
                 case 0:
                 {
-                	// The first section of the app is the most interesting -- it offers
-                    // a launchpad into the other demonstrations in this example application.
                     Fragment fragment = new CameraMockUpFragment();
                     Bundle args = new Bundle();
                     args.putInt(CameraMockUpFragment.ARG_SECTION_NUMBER, i + 1);
@@ -134,8 +132,6 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
                 }
                 case 1:
                 {
-                	// The first section of the app is the most interesting -- it offers
-                    // a launchpad into the other demonstrations in this example application.
                     Fragment fragment = new SessionViewMockUpFragment();
                     Bundle args = new Bundle();
                     args.putInt(SessionViewMockUpFragment.ARG_SECTION_NUMBER, i + 1);
@@ -144,8 +140,6 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
                 }
                 case 2:
                 {
-                	// The first section of the app is the most interesting -- it offers
-                    // a launchpad into the other demonstrations in this example application.
                     Fragment fragment = new SessionOptionsMockUpFragment();
                     Bundle args = new Bundle();
                     args.putInt(SessionOptionsMockUpFragment.ARG_SECTION_NUMBER, i + 1);
