@@ -266,6 +266,16 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_session_options_mock, container, false);
+            
+            rootView.findViewById(R.id.endSessionButton).setOnClickListener(
+				new View.OnClickListener() {
+	        		@Override
+	        		public void onClick(View view) {
+	        			getActivity().finish();
+	        		}
+	    		}							
+			);
+            
             Bundle args = getArguments();
             //((TextView) rootView.findViewById(android.R.id.text1)).setText("CameraMockUpFragment");
             return rootView;
