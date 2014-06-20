@@ -11,9 +11,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SessionActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -70,6 +73,26 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
                             .setTabListener(this));
         }
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.session, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        
+        if (id == R.id.action_settings) {
+        	Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT).show();
+        }
+        
+        if (id == R.id.action_end_Session) {
+        	this.finish();
+        }        
+        
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
@@ -101,7 +124,7 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
             switch (i) {
                 case 0:
                 {
-                    Fragment fragment = new new SeriesList();
+                    Fragment fragment = new SeriesList();
                     Bundle args = new Bundle();
                     fragment.setArguments(args);
                     return fragment;
