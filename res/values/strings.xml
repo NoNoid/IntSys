@@ -13,6 +13,7 @@
     <string name="action_overflow">overflow</string>
     <string name="title_activity_camera">CameraActivity</string>
     <string name="title_activity_result">ResultActivity</string>
-	<string name="commitResultButtonName">OK</string>
+    <string name="commitResultButtonName">OK</string>
+    <string name="title_activity_detail">DetailActivity</string>
 
 </resources>
