@@ -3,6 +3,7 @@ package com.example.intsys.Fragments;
 import java.util.ArrayList;
 
 import com.example.intsys.R;
+import com.example.intsys.SessionActivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -26,7 +27,7 @@ public class SessionList extends Fragment {
 
     public SessionList() {
     	num_entries = 40;
-    	//childActivity = SeriesListActivity.class;
+    	childActivity = SessionActivity.class;
     }
 
     @Override
@@ -42,8 +43,8 @@ public class SessionList extends Fragment {
 	    ListAdapter adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), R.layout.list_item,R.id.list_content, valueList);
     	
     	
-        View rootView = inflater.inflate(R.layout.fragment_list, container, false);
-        ListView listView = (ListView) rootView.findViewById(R.id.listView1);
+        View rootView = inflater.inflate(R.layout.fragment_list_bottombutton, container, false);
+        ListView listView = (ListView) rootView.findViewById(android.R.id.list);
         //ListView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
         listView.setAdapter(adapter);
         
@@ -53,8 +54,8 @@ public class SessionList extends Fragment {
 	        @Override
 	        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3)
 	        {
-//	        	Intent intent = new Intent(getActivity(), childActivity);
-//	        	startActivity(intent);
+	        	Intent intent = new Intent(getActivity(), childActivity);
+	        	startActivity(intent);
 	        }
         });
         
