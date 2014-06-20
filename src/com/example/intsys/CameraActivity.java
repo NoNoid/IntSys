@@ -44,6 +44,12 @@ public class CameraActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	@Override
+	public void onStop() {
+		super.onStop();
+		this.finish();
+	}
 
 	/**
 	 * A placeholder fragment containing a simple view.
