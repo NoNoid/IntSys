@@ -58,6 +58,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="SessionActivity" />
         </activity>
+        <activity
+            android:name="com.example.intsys.ResultActivity"
+            android:label="@string/title_activity_result"
+            android:parentActivityName="com.example.intsys.SessionActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="SessionActivity" />
+        </activity>
     </application>
 
 </manifest>

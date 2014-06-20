@@ -12,5 +12,6 @@
     <string name="action_new">new</string>
     <string name="action_overflow">overflow</string>
     <string name="title_activity_camera">CameraActivity</string>
+    <string name="title_activity_result">ResultActivity</string>
 
 </resources>
