@@ -1,9 +1,9 @@
 package com.example.intsys;
 
 import com.example.intsys.Fragments.SeriesList;
-
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -90,7 +90,7 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
      * sections of the app.
      */
     public static class AppSectionsPagerAdapter extends FragmentPagerAdapter {
-    	private final int numberOfTabs = 3;
+    	private final int numberOfTabs = 2;
     	
         public AppSectionsPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -101,26 +101,18 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
             switch (i) {
                 case 0:
                 {
-                    Fragment fragment = new CameraMockUpFragment();
+                    Fragment fragment = new new SeriesList();
                     Bundle args = new Bundle();
                     fragment.setArguments(args);
                     return fragment;
                 }
                 case 1:
                 {
-                    Fragment fragment = new SeriesList();
-//                    Bundle args = new Bundle();
-//                    args.putInt(SessionViewMockUpFragment.ARG_SECTION_NUMBER, i + 1);
-//                    fragment.setArguments(args);
-                    return fragment;
-                }
-                case 2:
-                {
                     Fragment fragment = new SessionOptionsMockUpFragment();
                     Bundle args = new Bundle();
                     fragment.setArguments(args);
                     return fragment;
-                }  
+                }
                 default:
                 {
                     // The other sections of the app are dummy placeholders.
@@ -141,13 +133,10 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
         public CharSequence getPageTitle(int position) {
             switch (position) {
 	            case 0: {
-	            	return "Camera";
+	            	return "Series";
 	            }
 	            case 1: {
-	            	return "Session View";
-	            }
-	            case 2: {
-	            	return "Session Options";
+	            	return "Statistics";
 	            }
 	            default: {
 	            	return "Anonymous Tab";
