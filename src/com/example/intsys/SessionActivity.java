@@ -1,5 +1,7 @@
 package com.example.intsys;
 
+import com.example.intsys.Fragments.SessionList;
+
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -108,10 +110,10 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
                 }
                 case 1:
                 {
-                    Fragment fragment = new SessionViewMockUpFragment();
-                    Bundle args = new Bundle();
-                    args.putInt(SessionViewMockUpFragment.ARG_SECTION_NUMBER, i + 1);
-                    fragment.setArguments(args);
+                    Fragment fragment = new SessionList();
+//                    Bundle args = new Bundle();
+//                    args.putInt(SessionViewMockUpFragment.ARG_SECTION_NUMBER, i + 1);
+//                    fragment.setArguments(args);
                     return fragment;
                 }
                 case 2:
