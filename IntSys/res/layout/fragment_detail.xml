@@ -1,16 +1,81 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
     tools:context="com.example.intsys.DetailActivity$PlaceholderFragment" >
 
     <TextView
+        android:id="@+id/detailMeanText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_above="@+id/detailMaxText"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="45dp"
+        android:text="@string/detailMeanText"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/detailMaxText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/detailMeanText"
+        android:layout_below="@+id/detailWindageText"
+        android:layout_marginTop="28dp"
+        android:text="@string/detailMaxText"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/detailElevationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/detailMaxText"
+        android:layout_alignBottom="@+id/detailMaxText"
+        android:layout_alignLeft="@+id/detailWindageText"
+        android:text="@string/detailElevationText"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/detailWindageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/detailTotalScore"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="70dp"
+        android:text="@string/detailWindageText"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/detailScoresText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/detailTotalScore"
+        android:layout_below="@+id/detailTotalScore"
+        android:layout_marginTop="20dp"
+        android:text="@string/detailScoresText"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/detailTotalScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/detailWindageText"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="28dp"
+        android:text="@string/detailTotalScoreText"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="19dp"
+        android:src="@drawable/zielscheibe_bw" />
 
 </RelativeLayout>
