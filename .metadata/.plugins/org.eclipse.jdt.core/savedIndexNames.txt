@@ -1,0 +1,10 @@
+INDEX VERSION 1.126+C:\Users\Manuel Kosta\Documents\uni\IAS\code\IntSys\.metadata\.plugins\org.eclipse.jdt.core
+2362029973.index
+3515282563.index
+2061383995.index
+3200029635.index
+3390737198.index
+1557147567.index
+3148483189.index
+2274810188.index
+1531412002.index
