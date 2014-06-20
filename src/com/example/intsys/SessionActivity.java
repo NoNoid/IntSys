@@ -102,7 +102,6 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
                 {
                     Fragment fragment = new CameraMockUpFragment();
                     Bundle args = new Bundle();
-                    args.putInt(CameraMockUpFragment.ARG_SECTION_NUMBER, i + 1);
                     fragment.setArguments(args);
                     return fragment;
                 }
@@ -110,7 +109,6 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
                 {
                     Fragment fragment = new SessionViewMockUpFragment();
                     Bundle args = new Bundle();
-                    args.putInt(SessionViewMockUpFragment.ARG_SECTION_NUMBER, i + 1);
                     fragment.setArguments(args);
                     return fragment;
                 }
@@ -118,7 +116,6 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
                 {
                     Fragment fragment = new SessionOptionsMockUpFragment();
                     Bundle args = new Bundle();
-                    args.putInt(SessionOptionsMockUpFragment.ARG_SECTION_NUMBER, i + 1);
                     fragment.setArguments(args);
                     return fragment;
                 }  
@@ -127,7 +124,6 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
                     // The other sections of the app are dummy placeholders.
                     Fragment fragment = new DummySectionFragment();
                     Bundle args = new Bundle();
-                    args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, i + 1);
                     fragment.setArguments(args);
                     return fragment;
                 }
@@ -163,13 +159,10 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
      */
     public static class DummySectionFragment extends Fragment {
 
-        public static final String ARG_SECTION_NUMBER = "section_number";
-
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_section_dummy, container, false);
-            Bundle args = getArguments();
             ((TextView) rootView.findViewById(android.R.id.text1)).setText("DummySectionFragment");
             return rootView;
         }
@@ -177,31 +170,23 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
     
     public static class CameraMockUpFragment extends Fragment {
 
-        public static final String ARG_SECTION_NUMBER = "section_number";
-
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_camera_mockup, container, false);
-            Bundle args = getArguments();
             return rootView;
         }
     }
     
     public static class SessionViewMockUpFragment extends Fragment {
 
-        public static final String ARG_SECTION_NUMBER = "section_number";
-
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_session_view_mock, container, false);
-            Bundle args = getArguments();
             return rootView;
         }
     }
     
     public static class SessionOptionsMockUpFragment extends Fragment {
-
-        public static final String ARG_SECTION_NUMBER = "section_number";
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -215,8 +200,7 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
 	        		}
 	    		}							
 			);
-            
-            Bundle args = getArguments();
+
             return rootView;
         }
     }
