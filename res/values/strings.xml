@@ -7,9 +7,10 @@
     <string name="menuOptionEndSession">End This Session</string>
     <string name="title_activity_session">SessionActivity</string>
     <string name="title_activity_create_session">CreateSessionActivity</string>
-	<string name="title_tab_session_browser">Session Browser</string>
+    <string name="title_tab_session_browser">Session Browser</string>
     <string name="title_tab_statistics">Statistics</string>
     <string name="action_new">new</string>
     <string name="action_overflow">overflow</string>
-    
+    <string name="title_activity_camera">CameraActivity</string>
+
 </resources>
