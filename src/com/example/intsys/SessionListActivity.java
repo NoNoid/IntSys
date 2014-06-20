@@ -43,7 +43,7 @@ public class SessionListActivity extends TabActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
     	super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.list, menu);;
+        getMenuInflater().inflate(R.menu.man_bar_entries, menu);;
         return true;
     }
 

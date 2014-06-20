@@ -43,7 +43,7 @@ public class SessionList extends Fragment {
 	    ListAdapter adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), R.layout.list_item,R.id.list_content, valueList);
     	
     	
-        View rootView = inflater.inflate(R.layout.fragment_list_bottombutton, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_list, container, false);
         ListView listView = (ListView) rootView.findViewById(android.R.id.list);
         //ListView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
         listView.setAdapter(adapter);
