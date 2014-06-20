@@ -3,6 +3,7 @@ package com.example.intsys.Fragments;
 import java.util.ArrayList;
 
 import com.example.intsys.CameraActivity;
+import com.example.intsys.DetailActivity;
 import com.example.intsys.R;
 
 import android.app.Activity;
@@ -20,7 +21,7 @@ import android.widget.ListView;
 public class SeriesList extends ListFragment {
 	ArrayList<String> mvalueList = new ArrayList<String>();
 	private final int NUM_ENTRIES;
-	Class childActivity;// = Details.class;
+	Class childActivity = DetailActivity.class;
 	public SeriesList()
 	{
 		NUM_ENTRIES = 3;
@@ -61,8 +62,8 @@ public class SeriesList extends ListFragment {
 
 	@Override
 	public void onListItemClick(ListView listView, View view, int position, long id){
-//		Intent intent = new Intent(getActivity(), childActivity);
-//    	startActivity(intent);
+		Intent intent = new Intent(getActivity(), childActivity);
+    	startActivity(intent);
 	}
-	
+
 }
