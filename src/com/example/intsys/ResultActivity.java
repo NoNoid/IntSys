@@ -57,6 +57,16 @@ public class ResultActivity extends Activity {
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_result,
 					container, false);
+			
+            rootView.findViewById(R.id.commitResultButton).setOnClickListener(
+				new View.OnClickListener() {
+	        		@Override
+	        		public void onClick(View view) {
+	        			getActivity().finish();
+	        		}
+	    		}							
+			);
+			
 			return rootView;
 		}
 	}
