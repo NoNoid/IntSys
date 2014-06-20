@@ -2,6 +2,7 @@ package com.example.intsys.Fragments;
 
 import java.util.ArrayList;
 
+import com.example.intsys.CameraActivity;
 import com.example.intsys.R;
 
 import android.app.Activity;
@@ -42,9 +43,22 @@ public class SeriesList extends ListFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		//return super.onCreateView(inflater, container, savedInstanceState);
-		return inflater.inflate(R.layout.fragment_list_bottombutton, container, false);
+        
+		View rootView = inflater.inflate(R.layout.fragment_list_bottombutton, container, false);
+		
+		rootView.findViewById(R.id.cameraButton).setOnClickListener(
+			new View.OnClickListener() {
+        		@Override
+        		public void onClick(View view) {
+        			Intent intent = new Intent(getActivity(), CameraActivity.class);
+        			getActivity().startActivity(intent);
+        		}
+    		}							
+		);
+		
+		return rootView;
 	}
-	
+
 	@Override
 	public void onListItemClick(ListView listView, View view, int position, long id){
 //		Intent intent = new Intent(getActivity(), childActivity);
