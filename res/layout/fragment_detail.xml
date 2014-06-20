@@ -8,14 +8,6 @@
     android:paddingTop="0dp"
     tools:context="com.example.intsys.DetailActivity$PlaceholderFragment" >
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/zielscheibe_bw" />
-
     <TextView
         android:id="@+id/detailMeanText"
         android:layout_width="wrap_content"
@@ -37,17 +29,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/detailWindageText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/imageView1"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="58dp"
-        android:text="@string/detailWindageText"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
         android:id="@+id/detailElevationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,5 +37,45 @@
         android:layout_alignLeft="@+id/detailWindageText"
         android:text="@string/detailElevationText"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/detailWindageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/detailTotalScore"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="70dp"
+        android:text="@string/detailWindageText"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/detailScoresText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/detailTotalScore"
+        android:layout_below="@+id/detailTotalScore"
+        android:layout_marginTop="20dp"
+        android:text="@string/detailScoresText"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/detailTotalScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/detailWindageText"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="28dp"
+        android:text="@string/detailTotalScoreText"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="19dp"
+        android:src="@drawable/zielscheibe_bw" />
 
 </RelativeLayout>
