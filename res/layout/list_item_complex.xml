@@ -23,6 +23,7 @@
             android:layout_marginTop="4dp"
             android:text="Wettkampf XY"
             android:textColor="#000000"
+            android:textStyle="bold"
             android:textSize="@dimen/list_item_title_height" />
 
         <LinearLayout

@@ -22,6 +22,10 @@ public class SessionHistory {
 		mSessions.add(0, SessionToAdd);
 	}
 	
+	public int getNumberOfSessions(){
+		return mSessions.size();
+	}
+	
 	public SessionHistory(int numberOfSessions, Random randomGenerator) {
 		mSessions = new ArrayList<Session>(numberOfSessions);
 		for(int i = 0; i < numberOfSessions; ++i) {

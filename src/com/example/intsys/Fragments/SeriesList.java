@@ -3,9 +3,11 @@ package com.example.intsys.Fragments;
 import java.util.ArrayList;
 
 import com.example.intsys.CameraActivity;
-import com.example.intsys.DetailActivity;
 import com.example.intsys.R;
 import com.example.intsys.SeriesActivity;
+import com.example.intsys.data.DataSingleton;
+import com.example.intsys.data.Series;
+import com.example.intsys.data.SeriesArrayAdapter;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -22,13 +24,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView.MultiChoiceModeListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
 public class SeriesList extends ListFragment {
 	ArrayList<String> mvalueList = new ArrayList<String>();
-	private final int NUM_ENTRIES;
+	ArrayList<Series> m_seriesList = new ArrayList<Series>();
+	private int NUM_ENTRIES;
 	Class childActivity = SeriesActivity.class;
 	private int sessionIdx = -1;
 	
@@ -46,11 +48,25 @@ public class SeriesList extends ListFragment {
 		super.onAttach(activity);
 		
 		sessionIdx = getArguments().getInt("SessionIdx");
+
+
+		DataSingleton dataSingleton = DataSingleton.getInstance();
+		if(sessionIdx >= 0)
+		{
+	    	NUM_ENTRIES = dataSingleton.getSessionHistory().getSession(sessionIdx).getNumberOfSeries();
+	    	for(int i = 0; i < NUM_ENTRIES; i++)
+		    {
+		    	m_seriesList.add(dataSingleton.getSessionHistory().getSession(sessionIdx).getSeries(i));
+		    }
+		}
 		
 	   	Activity myAtivity = getActivity();
 	    Context myContext = myAtivity.getBaseContext();
-	    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, mvalueList);
-	    setListAdapter(arrayAdapter);
+//	    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, mvalueList);
+//	    setListAdapter(arrayAdapter);
+	    
+	    SeriesArrayAdapter seriesAdapter = new SeriesArrayAdapter(myContext, R.layout.list_item_complex, m_seriesList);
+	    setListAdapter(seriesAdapter);
     }
 	
 	

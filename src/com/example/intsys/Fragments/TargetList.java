@@ -47,17 +47,6 @@ public class TargetList extends ListFragment {
 //	    {
 //	    	mvalueList.add("value"+i);
 //	    }
-//		seriesNr = getArguments().getInt("SeriesNr", -1);
-//		DataSingleton dataSingleton = DataSingleton.getInstance();
-//		
-//	    NUM_ENTRIES = dataSingleton.getCurrentSession().getNumberOfSeries();
-//	    if(seriesNr >= 0)
-//	    {
-//	    	for(int i = 0; i < NUM_ENTRIES; i++)
-//		    {
-//		    	m_targetList.add(dataSingleton.getCurrentSession().getSeries(seriesNr).getTarget(i));
-//		    }
-//	    }
 	    
 	}
 	@Override

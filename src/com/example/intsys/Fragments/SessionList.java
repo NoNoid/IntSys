@@ -4,9 +4,14 @@ import java.util.ArrayList;
 
 import com.example.intsys.R;
 import com.example.intsys.SessionActivity;
+import com.example.intsys.data.DataSingleton;
+import com.example.intsys.data.Session;
+import com.example.intsys.data.SessionArrayAdapter;
+import com.example.intsys.data.TargetArrayAdapter;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,6 +36,7 @@ import android.widget.ListView;
 public class SessionList extends Fragment {
 	int num_entries;
 	Class childActivity;
+	private ArrayList<Session> m_sessionList = new ArrayList<Session>();
 
     public SessionList() {
     	num_entries = 40;
@@ -41,19 +47,38 @@ public class SessionList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
     	
-    	ArrayList<String> valueList = new ArrayList<String>();
-	    for (int i = 0; i < num_entries ; i++)
-	    {
-	    	valueList.add("value"+i);
-	    }
-	    
-	    ListAdapter adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), R.layout.list_item,R.id.list_content, valueList);
-    	
+//    	ArrayList<String> valueList = new ArrayList<String>();
+//	    for (int i = 0; i < num_entries ; i++)
+//	    {
+//	    	valueList.add("value"+i);
+//	    }
+//	    
+//	    ListAdapter adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), R.layout.list_item,R.id.list_content, valueList);
+//    	
     	
         View rootView = inflater.inflate(R.layout.fragment_list, container, false);
         ListView listView = (ListView) rootView.findViewById(android.R.id.list);
-        //ListView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
-        listView.setAdapter(adapter);
+        //listView.setAdapter(adapter);
+        
+        
+        // create MockupList with MockUp Data
+        Activity myAtivity = getActivity();
+		Context myContext = myAtivity.getBaseContext();
+			
+		DataSingleton dataSingleton = DataSingleton.getInstance();
+    	num_entries = dataSingleton.getSessionHistory().getNumberOfSessions();
+    	for(int i = 0; i < num_entries; i++)
+	    {
+	    	m_sessionList.add(dataSingleton.getSessionHistory().getSession(i));
+	    }
+		
+		SessionArrayAdapter sessionAdapter = new SessionArrayAdapter(myContext, R.layout.list_item_complex, m_sessionList);
+		listView.setAdapter(sessionAdapter);
+		
+		
+        
+        
+        
         
      // ####		Copy of SriesList		######### 
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
