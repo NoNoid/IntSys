@@ -13,16 +13,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog;
+import com.example.intsys.data.DataSingleton;
 
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
 
 public class CreateSessionActivity extends FragmentActivity{
+	private Calendar SessionDate = Calendar.getInstance();
+	private EditText personNameEditText;
 	
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,7 +34,7 @@ public class CreateSessionActivity extends FragmentActivity{
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
+		}		
 	}
 
 	@Override
@@ -63,8 +66,8 @@ public class CreateSessionActivity extends FragmentActivity{
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
-	public static class PlaceholderFragment extends Fragment
-		implements CalendarDatePickerDialog.OnDateSetListener{
+	private class PlaceholderFragment extends Fragment
+		implements CalendarDatePickerDialog.OnDateSetListener {
 		
 		private FragmentActivity fragmentContext;
 
@@ -83,10 +86,14 @@ public class CreateSessionActivity extends FragmentActivity{
 			View rootView = inflater.inflate(R.layout.fragment_create_session,
 					container, false);
 			
+			personNameEditText = (EditText)rootView.findViewById(R.id.createSessionEditPersonName);
+			
             rootView.findViewById(R.id.confirmCreateSessionButton).setOnClickListener(
 				new View.OnClickListener() {
 	        		@Override
 	        		public void onClick(View view) {
+	        			DataSingleton data = DataSingleton.getInstance();
+	        			data.createNewSession(personNameEditText.getText().toString(), SessionDate.getTime());
             			Intent intent = new Intent(getActivity(), SessionActivity.class);
             			getActivity().startActivity(intent);
 	        		}
@@ -113,12 +120,12 @@ public class CreateSessionActivity extends FragmentActivity{
 		public void onDateSet(CalendarDatePickerDialog dialog, int year,
 				int monthOfYear, int dayOfMonth) {
 			// TODO Auto-generated method stub
-			Calendar test = Calendar.getInstance();
-            test.set(year, monthOfYear, dayOfMonth);
-            SimpleDateFormat date = new SimpleDateFormat("EE d/MM/yy"); 
+			SessionDate = Calendar.getInstance();
+            SessionDate.set(year, monthOfYear, dayOfMonth);
+            SimpleDateFormat date = new SimpleDateFormat("EE d/MM/yy");          
             
             Button sessionDate = (Button) fragmentContext.findViewById(R.id.datePickerButon);
-            sessionDate.setText( date.format(test.getTime()) );
+            sessionDate.setText( date.format(SessionDate.getTime()) );
 		}
 	}
 

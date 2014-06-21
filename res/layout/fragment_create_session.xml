@@ -9,7 +9,7 @@
     tools:context="com.example.intsys.CreateSessionActivity$PlaceholderFragment" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/createSessionHelpText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Here are Options for creating a new Session \n Click OK to continue" />
@@ -26,8 +26,8 @@
         android:id="@+id/SessionDateLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/createSessionHelpText"
+        android:layout_below="@+id/createSessionHelpText"
         android:layout_marginTop="36dp"
         android:text="Date:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -40,5 +40,28 @@
         android:layout_marginLeft="21dp"
         android:layout_toRightOf="@+id/SessionDateLabel"
         android:text="-- --/--/--" />
+
+    <EditText
+        android:id="@+id/createSessionEditPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/datePickerButon"
+        android:layout_below="@+id/datePickerButon"
+        android:layout_marginTop="34dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/createSessionPersonNameEditHintText" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/createSessionPersonNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/createSessionEditPersonName"
+        android:layout_alignLeft="@+id/SessionDateLabel"
+        android:text="@string/createSessionPersonNameTextViewText"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

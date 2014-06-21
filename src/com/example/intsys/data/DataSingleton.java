@@ -52,6 +52,12 @@ public class DataSingleton
 	  return tempSession;
   }
   
+  public Session createNewSession(String ShooterName, Date date) {
+	  Session tempSession = mCurrentSession;
+	  mCurrentSession = new Session(ShooterName);
+	  return tempSession;
+  }
+  
   public SessionHistory getSessionHistory() {
 	return mMockUpSessionHistory;
 	  

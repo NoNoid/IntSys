@@ -40,6 +40,12 @@ public class Session {
 		mSeries = new ArrayList<Series>(MINIMUM_CAPACITY_FOR_EMPTY_SESSION);
 	}
 	
+	public Session(String ShooterName, Date date) {
+		this.date = date;
+		this.ShooterName = ShooterName;
+		mSeries = new ArrayList<Series>(MINIMUM_CAPACITY_FOR_EMPTY_SESSION);
+	}	
+	
 	public Session(String ShooterName ,Date date, int numberOfSeries, int maxNumberOfTargets, Random randomGenerator) {
 		this.date = date;
 		this.ShooterName = ShooterName;
