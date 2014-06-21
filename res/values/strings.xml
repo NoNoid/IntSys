@@ -10,10 +10,19 @@
     <string name="title_tab_session_browser">Session Browser</string>
     <string name="title_tab_statistics">Statistics</string>
     <string name="action_new">new</string>
+    <string name="action_delete">delete</string>
+    <string name="action_edit">edit</string>
+    <string name="action_share">share</string>
     <string name="action_overflow">overflow</string>
     <string name="title_activity_camera">CameraActivity</string>
     <string name="title_activity_result">ResultActivity</string>
     <string name="commitResultButtonName">OK</string>
     <string name="title_activity_detail">DetailActivity</string>
+	<string name="detailMeanText">Mean: 1</string>
+	<string name="detailMaxText">Max: 1</string>
+	<string name="detailWindageText">Windage: 1</string>
+	<string name="detailElevationText">Elevation: 1</string>
+	<string name="detailTotalScoreText">Total Score: 50</string>
+	<string name="detailScoresText">Scores: 10 10 10 10 10</string>
 
 </resources>

@@ -9,6 +9,7 @@
     tools:context="com.example.intsys.CreateSessionActivity$PlaceholderFragment" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Here are Options for creating a new Session \n Click OK to continue" />
@@ -19,7 +20,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp"
         android:text="OK" />
+
+    <TextView
+        android:id="@+id/SessionDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="36dp"
+        android:text="Date:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/datePickerButon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/SessionDateLabel"
+        android:layout_marginLeft="21dp"
+        android:layout_toRightOf="@+id/SessionDateLabel"
+        android:text="-- --/--/--" />
 
 </RelativeLayout>
