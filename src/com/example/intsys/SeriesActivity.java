@@ -2,6 +2,7 @@ package com.example.intsys;
 
 import com.example.intsys.Fragments.Fragment_statisitcs;
 import com.example.intsys.Fragments.SessionList;
+import com.example.intsys.Fragments.TargetList;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -74,7 +75,7 @@ public class SeriesActivity extends TabActivity
         public Fragment getItem(int position) {
           if(position == 0)
           {
-        	  return new SessionList();
+        	  return new TargetList();
           }
           else
           {

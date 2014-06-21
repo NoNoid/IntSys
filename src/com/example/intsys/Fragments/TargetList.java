@@ -16,21 +16,22 @@ import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView.MultiChoiceModeListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.AbsListView.MultiChoiceModeListener;
 
 
-public class SeriesList extends ListFragment {
+public class TargetList extends ListFragment {
 	ArrayList<String> mvalueList = new ArrayList<String>();
 	private final int NUM_ENTRIES;
-	Class childActivity = SeriesActivity.class;
-	public SeriesList()
+	private final static Class childActivity = DetailActivity.class;
+	
+	public TargetList()
 	{
 		NUM_ENTRIES = 3;
 	    for (int i = 0; i < NUM_ENTRIES ; i++)
@@ -132,7 +133,7 @@ public class SeriesList extends ListFragment {
 		
 		return rootView;
 	}
-	
+
 	@Override
 	public void onListItemClick(ListView listView, View view, int position, long id){
 		Intent intent = new Intent(getActivity(), childActivity);
