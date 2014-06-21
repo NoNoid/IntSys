@@ -16,6 +16,7 @@ public class IntSysApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		DataSingleton.initInstance();
 	}
 
 }
