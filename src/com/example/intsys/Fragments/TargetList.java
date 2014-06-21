@@ -6,6 +6,9 @@ import com.example.intsys.CameraActivity;
 import com.example.intsys.DetailActivity;
 import com.example.intsys.R;
 import com.example.intsys.SeriesActivity;
+import com.example.intsys.data.DataSingleton;
+import com.example.intsys.data.Target;
+import com.example.intsys.data.TargetArrayAdapter;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -13,6 +16,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -28,16 +32,33 @@ import android.widget.AbsListView.MultiChoiceModeListener;
 
 public class TargetList extends ListFragment {
 	ArrayList<String> mvalueList = new ArrayList<String>();
-	private final int NUM_ENTRIES;
+	ArrayList<Target> m_targetList = new ArrayList<Target>();
+	private int NUM_ENTRIES;
 	private final static Class childActivity = DetailActivity.class;
+	private  int seriesNr;
+	private int sessionIdx;
+	
+	
 	
 	public TargetList()
 	{
-		NUM_ENTRIES = 3;
-	    for (int i = 0; i < NUM_ENTRIES ; i++)
-	    {
-	    	mvalueList.add("value"+i);
-	    }
+//		NUM_ENTRIES = 3;
+//	    for (int i = 0; i < NUM_ENTRIES ; i++)
+//	    {
+//	    	mvalueList.add("value"+i);
+//	    }
+//		seriesNr = getArguments().getInt("SeriesNr", -1);
+//		DataSingleton dataSingleton = DataSingleton.getInstance();
+//		
+//	    NUM_ENTRIES = dataSingleton.getCurrentSession().getNumberOfSeries();
+//	    if(seriesNr >= 0)
+//	    {
+//	    	for(int i = 0; i < NUM_ENTRIES; i++)
+//		    {
+//		    	m_targetList.add(dataSingleton.getCurrentSession().getSeries(seriesNr).getTarget(i));
+//		    }
+//	    }
+	    
 	}
 	@Override
     public void onAttach(Activity activity) {
@@ -45,8 +66,27 @@ public class TargetList extends ListFragment {
 		
 	   	Activity myAtivity = getActivity();
 	    Context myContext = myAtivity.getBaseContext();
-	    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, mvalueList);
-	    setListAdapter(arrayAdapter);
+//	    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, mvalueList);
+//	    setListAdapter(arrayAdapter);
+	    
+	    TargetArrayAdapter targetArrayAdapter = new TargetArrayAdapter(myContext, R.layout.list_item_complex, m_targetList);
+	    setListAdapter(targetArrayAdapter);
+	    
+	    seriesNr = getArguments().getInt("SeriesNr", -1);
+	    sessionIdx = getArguments().getInt("SessionIdx",-1);
+	    
+		DataSingleton dataSingleton = DataSingleton.getInstance();
+		if(sessionIdx >= 0)
+		{
+		    if(seriesNr >= 0)
+		    {
+		    	NUM_ENTRIES = dataSingleton.getSessionHistory().getSession(sessionIdx).getSeries(seriesNr).getNumberOfTargets();
+		    	for(int i = 0; i < NUM_ENTRIES; i++)
+			    {
+			    	m_targetList.add(dataSingleton.getSessionHistory().getSession(sessionIdx).getSeries(seriesNr).getTarget(i));
+			    }
+		    }
+		}
     }
 	
 	

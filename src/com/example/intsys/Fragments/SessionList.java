@@ -125,9 +125,12 @@ public class SessionList extends Fragment {
 		
         listView.setOnItemClickListener(new OnItemClickListener() {
 	        @Override
-	        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3)
+	        public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3)
 	        {
 	        	Intent intent = new Intent(getActivity(), childActivity);
+	        	Bundle bundle = new Bundle();
+	        	bundle.putInt("SessionIdx", position);
+	        	intent.putExtras(bundle);
 	        	startActivity(intent);
 	        }
         });

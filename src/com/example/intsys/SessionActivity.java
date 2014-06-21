@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 public class SessionActivity extends FragmentActivity implements ActionBar.TabListener {
 
+	private int sessionIdx = -1;
+	
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
      * three primary sections of the app. We use a {@link android.support.v4.app.FragmentPagerAdapter}
@@ -41,6 +43,9 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
         mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager());
+        
+        // get Index of Session selected in SessionList
+        sessionIdx = getIntent().getIntExtra("SessionIdx", -1);
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
@@ -112,7 +117,7 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to one of the primary
      * sections of the app.
      */
-    public static class AppSectionsPagerAdapter extends FragmentPagerAdapter {
+    private class AppSectionsPagerAdapter extends FragmentPagerAdapter {
     	private final int numberOfTabs = 2;
     	
         public AppSectionsPagerAdapter(FragmentManager fm) {
@@ -126,6 +131,7 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
                 {
                     Fragment fragment = new SeriesList();
                     Bundle args = new Bundle();
+                    args.putInt("SessionIdx", sessionIdx);
                     fragment.setArguments(args);
                     return fragment;
                 }

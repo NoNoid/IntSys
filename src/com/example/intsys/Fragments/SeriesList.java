@@ -30,6 +30,9 @@ public class SeriesList extends ListFragment {
 	ArrayList<String> mvalueList = new ArrayList<String>();
 	private final int NUM_ENTRIES;
 	Class childActivity = SeriesActivity.class;
+	private int sessionIdx = -1;
+	
+	
 	public SeriesList()
 	{
 		NUM_ENTRIES = 3;
@@ -41,6 +44,8 @@ public class SeriesList extends ListFragment {
 	@Override
     public void onAttach(Activity activity) {
 		super.onAttach(activity);
+		
+		sessionIdx = getArguments().getInt("SessionIdx");
 		
 	   	Activity myAtivity = getActivity();
 	    Context myContext = myAtivity.getBaseContext();
@@ -136,6 +141,10 @@ public class SeriesList extends ListFragment {
 	@Override
 	public void onListItemClick(ListView listView, View view, int position, long id){
 		Intent intent = new Intent(getActivity(), childActivity);
+		Bundle bundle = new Bundle();
+		bundle.putInt("SeriesNr", position);
+		bundle.putInt("SessionIdx", sessionIdx);
+		intent.putExtras(bundle);
     	startActivity(intent);
 	}
 

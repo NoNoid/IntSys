@@ -18,7 +18,9 @@ public class SeriesActivity extends TabActivity
    {
 	
 	public static final int NUM_PAGES = 2;
-
+	
+	private int m_seriesNr = -1;
+	private int m_sessionIdx = -1;
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -31,11 +33,8 @@ public class SeriesActivity extends TabActivity
 //        mNavigationDrawerFragment = (NavigationDrawerFragment)
 //                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
-
-        // Set up the drawer.
-//        mNavigationDrawerFragment.setUp(
-//                R.id.navigation_drawer,
-//                (DrawerLayout) findViewById(R.id.drawer_layout));
+        m_seriesNr = getIntent().getIntExtra("SeriesNr", -1);
+        m_sessionIdx = getIntent().getIntExtra("SessionIdx", -1);
 	    
     }
       
@@ -75,7 +74,12 @@ public class SeriesActivity extends TabActivity
         public Fragment getItem(int position) {
           if(position == 0)
           {
-        	  return new TargetList();
+        	  TargetList tList = new TargetList();
+        	  Bundle bundle = new Bundle();
+        	  bundle.putInt("SeriesNr", m_seriesNr);
+        	  bundle.putInt("SessionIdx", m_sessionIdx);
+        	  tList.setArguments(bundle);
+        	  return tList;
           }
           else
           {
