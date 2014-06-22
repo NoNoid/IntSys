@@ -46,15 +46,21 @@ public class DataSingleton
 	  return mCurrentSession == null ? false : true;
   }
   
-  public Session createNewSession(String ShooterName) {
+  public Session createNewCurrentSession(String ShooterName) {
 	  Session tempSession = mCurrentSession;
 	  mCurrentSession = new Session(ShooterName);
 	  return tempSession;
   }
   
-  public Session createNewSession(String ShooterName, Date date) {
+  public Session createNewCurrentSession(String ShooterName, Date date) {
 	  Session tempSession = mCurrentSession;
 	  mCurrentSession = new Session(ShooterName);
+	  return tempSession;
+  }
+  
+  public Session EndCurrentSession() {
+	  Session tempSession = mCurrentSession;
+	  mCurrentSession = null;
 	  return tempSession;
   }
   
