@@ -8,6 +8,7 @@ import com.example.intsys.SeriesActivity;
 import com.example.intsys.data.DataSingleton;
 import com.example.intsys.data.Series;
 import com.example.intsys.data.SeriesArrayAdapter;
+import com.example.intsys.data.Session;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -15,6 +16,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -46,19 +48,37 @@ public class SeriesList extends ListFragment {
 	@Override
     public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		
-		sessionIdx = getArguments().getInt("SessionIdx");
-
-
+    }
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		m_seriesList.clear();
+		sessionIdx = getArguments().getInt("SessionIdx");	
 		DataSingleton dataSingleton = DataSingleton.getInstance();
+//		FragmentActivity act = getActivity();
+//		Intent intent = act.getIntent();
+//		Bundle b = intent.getExtras();
+//		sessionIdx = b.getInt("SessionIdx", -1);
 		if(sessionIdx >= 0)
 		{
-	    	NUM_ENTRIES = dataSingleton.getSessionHistory().getSession(sessionIdx).getNumberOfSeries();
+			Session session = dataSingleton.getSessionHistory().getSession(sessionIdx);
+	    	NUM_ENTRIES = session.getNumberOfSeries();
 	    	for(int i = 0; i < NUM_ENTRIES; i++)
 		    {
-		    	m_seriesList.add(dataSingleton.getSessionHistory().getSession(sessionIdx).getSeries(i));
+		    	m_seriesList.add(session.getSeries(i));
 		    }
 		}
+		else if(sessionIdx == -3)
+		{
+			Session session = dataSingleton.getCurrentSession();
+	    	NUM_ENTRIES = session.getNumberOfSeries();
+	    	for(int i = 0; i < NUM_ENTRIES; i++)
+		    {
+		    	m_seriesList.add(session.getSeries(i));
+		    }
+		}
+		
 		
 	   	Activity myAtivity = getActivity();
 	    Context myContext = myAtivity.getBaseContext();
@@ -67,7 +87,7 @@ public class SeriesList extends ListFragment {
 	    
 	    SeriesArrayAdapter seriesAdapter = new SeriesArrayAdapter(myContext, R.layout.list_item_complex, m_seriesList);
 	    setListAdapter(seriesAdapter);
-    }
+	}
 	
 	
 	@Override

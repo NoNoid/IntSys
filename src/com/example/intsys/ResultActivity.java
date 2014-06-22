@@ -1,5 +1,13 @@
 package com.example.intsys;
 
+import java.util.Random;
+
+import com.example.intsys.data.DataSingleton;
+import com.example.intsys.data.Series;
+import com.example.intsys.data.Session;
+import com.example.intsys.data.Session.SessionType;
+import com.example.intsys.data.Target;
+
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -67,20 +75,47 @@ public class ResultActivity extends Activity {
 	        			
 	        			AlertDialog.Builder b = new Builder(getActivity());
 	        		    b.setTitle("Add to Series");
-	        		    String[] types = {"Nr 1", "Nr 2", "Nr 3","Nr 4","Nr 5","Nr 6","Nr 7","Nr 8","Nr 9","Nr 10","Nr 11","Nr 12","Nr 13","Nr 14","Nr 15","Nr 16"};
+	        		    DataSingleton data = DataSingleton.getInstance();
+	        		    int numSeries = data.getCurrentSession().getNumberOfSeries();
+	        		    String[] types = new String[numSeries + 1];
+	        		    
+	        		    for(int i = 1; i < types.length; i++)
+	        		    {
+	        		    	types[i] = "Series Nr " + i;
+	        		    }
+	        		    types[0] = "Create new Series";
+	        		    
+	        		    final int typesSize = types.length;
+	        		    
 	        		    b.setItems(types, new OnClickListener() {
 
 	        		        @Override
 	        		        public void onClick(DialogInterface dialog, int which) {
 
 	        		            dialog.dismiss();
-	        		            switch(which){
-	        		            case 0:
-	        		                //onZipRequested();
-	        		                break;
-	        		            case 1:
-	        		                //onCategoryRequested();
-	        		                break;
+	        		            DataSingleton privData = DataSingleton.getInstance();
+	        		            if(privData.checkIfCurrentSessionExists())
+	        		            {
+	        		            	Session curSession = privData.getCurrentSession();
+	        		            	if(which == 0)
+	        		            	{
+	        		            		curSession.addSeries(new Series(Series.ShootingPose.PRONE));
+	        		            		curSession.getSeries(curSession.getNumberOfSeries()-1).addTarget(new Target(new Random()));
+	        		            	}
+	        		            	else
+	        		            	{
+	        		            		for(int i = 1; i < typesSize; i++)
+			        		            {
+			        		            	if(i == which)
+			        		            	{
+			        		            		Series selectedSeries = curSession.getSeries(i-1);
+			        		            		selectedSeries.addTarget(new Target(new Random()));
+			        		            		break;
+			        		            	}
+			        		            }
+	        		            	}
+		        		            int stopForDebug = 0;
+		        		            int foo = stopForDebug -3;
 	        		            }
 	        		            getActivity().finish();
 	        		        }

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
+import com.example.intsys.data.Series.ShootingPose;
+
 /**
  * @author NoNoid
  *
@@ -24,6 +26,7 @@ public class Session {
 	final static private int MINIMUM_CAPACITY_FOR_EMPTY_SESSION = 5;
 	
 	private ArrayList<Series> mSeries;
+	public String title;
 	public String ShooterName;
 	public String place;
 	public SessionType type;
@@ -72,14 +75,17 @@ public class Session {
 		return mean;
 	}
 	
-	public Session(String ShooterName, String place) {
+	public Session(String title, String ShooterName, String place, SessionType type) {
 		date = new Date();
+		this.title = title;
 		this.ShooterName = ShooterName;
 		this.place = place;
+		this.type = type;
 		mSeries = new ArrayList<Series>(MINIMUM_CAPACITY_FOR_EMPTY_SESSION);
 	}
 	
 	public Session(String ShooterName ,String place, Date date, int numberOfSeries, int maxNumberOfTargets, Random randomGenerator) {
+		this.title = "RandomGenerated";
 		this.date = date;
 		this.ShooterName = ShooterName;
 		this.place = place;

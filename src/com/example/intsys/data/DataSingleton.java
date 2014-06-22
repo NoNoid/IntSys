@@ -6,6 +6,8 @@ package com.example.intsys.data;
 import java.util.Date;
 import java.util.Random;
 
+import com.example.intsys.data.Session.SessionType;
+
 /**
  * @author NoNoid
  *
@@ -47,9 +49,9 @@ public class DataSingleton
   }
   
   
-  public Session createNewCurrentSession(String ShooterName, String location, Date date) {
+  public Session createNewCurrentSession(String title, String ShooterName, String location,SessionType type , Date date) {
 	  Session tempSession = mCurrentSession;
-	  mCurrentSession = new Session(ShooterName,location);
+	  mCurrentSession = new Session(title, ShooterName,location,type);
 	  return tempSession;
   }
   

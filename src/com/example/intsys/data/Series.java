@@ -73,6 +73,10 @@ public class Series {
 	public Series() {
 		mTarget = new ArrayList<Target>(MINIMUM_CAPACITY_FOR_EMPTY_SERIES);
 	}
+	public Series(ShootingPose p_pose) {
+		mTarget = new ArrayList<Target>(MINIMUM_CAPACITY_FOR_EMPTY_SERIES);
+		m_pose = p_pose;
+	}
 	
 	public Series(int numberOfInitialItems, Random randomGenerator) {
 		mTarget = new ArrayList<Target>(numberOfInitialItems);

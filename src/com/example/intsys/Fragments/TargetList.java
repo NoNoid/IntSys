@@ -52,8 +52,13 @@ public class TargetList extends ListFragment {
 	@Override
     public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		
-	   	Activity myAtivity = getActivity();
+    }
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		m_targetList.clear();
+		Activity myAtivity = getActivity();
 	    Context myContext = myAtivity.getBaseContext();
 //	    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(myContext, android.R.layout.simple_list_item_1, mvalueList);
 //	    setListAdapter(arrayAdapter);
@@ -76,7 +81,16 @@ public class TargetList extends ListFragment {
 			    }
 		    }
 		}
-    }
+		// check if Session to display is Current Session
+		else if(sessionIdx == -3)
+		{
+			NUM_ENTRIES = dataSingleton.getCurrentSession().getSeries(seriesNr).getNumberOfTargets();
+	    	for(int i = 0; i < NUM_ENTRIES; i++)
+		    {
+		    	m_targetList.add(dataSingleton.getCurrentSession().getSeries(seriesNr).getTarget(i));
+		    }
+		}
+	}
 	
 	
 	@Override

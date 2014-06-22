@@ -31,7 +31,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 /**
- * A Fragment containing a list.
+ *Shows Session History
  */
 public class SessionList extends Fragment {
 	int num_entries;
@@ -41,6 +41,25 @@ public class SessionList extends Fragment {
     public SessionList() {
     	num_entries = 40;
     	childActivity = SessionActivity.class;
+    }
+    
+    @Override
+    public void onResume(){
+    	super.onResume();
+    	m_sessionList.clear();
+    	// create MockupList with MockUp Data
+        Activity myAtivity = getActivity();
+		Context myContext = myAtivity.getBaseContext();
+			
+		DataSingleton dataSingleton = DataSingleton.getInstance();
+    	num_entries = dataSingleton.getSessionHistory().getNumberOfSessions();
+    	for(int i = 0; i < num_entries; i++)
+	    {
+	    	m_sessionList.add(dataSingleton.getSessionHistory().getSession(i));
+	    }
+    	ListView listView = (ListView) getActivity().findViewById(android.R.id.list);
+		SessionArrayAdapter sessionAdapter = new SessionArrayAdapter(myContext, R.layout.list_item_complex, m_sessionList);
+		listView.setAdapter(sessionAdapter);
     }
 
     @Override
@@ -59,24 +78,6 @@ public class SessionList extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_list, container, false);
         ListView listView = (ListView) rootView.findViewById(android.R.id.list);
         //listView.setAdapter(adapter);
-        
-        
-        // create MockupList with MockUp Data
-        Activity myAtivity = getActivity();
-		Context myContext = myAtivity.getBaseContext();
-			
-		DataSingleton dataSingleton = DataSingleton.getInstance();
-    	num_entries = dataSingleton.getSessionHistory().getNumberOfSessions();
-    	for(int i = 0; i < num_entries; i++)
-	    {
-	    	m_sessionList.add(dataSingleton.getSessionHistory().getSession(i));
-	    }
-		
-		SessionArrayAdapter sessionAdapter = new SessionArrayAdapter(myContext, R.layout.list_item_complex, m_sessionList);
-		listView.setAdapter(sessionAdapter);
-		
-		
-        
         
         
         
