@@ -42,38 +42,22 @@
         <activity
             android:name="com.example.intsys.SessionActivity"
             android:label="@string/title_activity_session"
-            android:parentActivityName="com.example.intsys.MainActivity" 
             android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="MainActivity" />
         </activity>
         <activity
             android:name="com.example.intsys.CreateSessionActivity"
             android:label="@string/title_activity_create_session"
-            android:parentActivityName="com.example.intsys.MainActivity" 
             android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="MainActivity" />
         </activity>
         <activity
             android:name="com.example.intsys.CameraActivity"
             android:label="@string/title_activity_camera"
-            android:parentActivityName="com.example.intsys.SessionActivity" 
             android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="SessionActivity" />
         </activity>
         <activity
             android:name="com.example.intsys.ResultActivity"
             android:label="@string/title_activity_result"
-            android:parentActivityName="com.example.intsys.SessionActivity"
             android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="SessionActivity" />
         </activity>
         <activity
             android:name="com.example.intsys.DetailActivity"
@@ -83,11 +67,7 @@
         <activity
             android:name="com.example.intsys.SeriesActivity"
             android:label="@string/title_activity_series"
-            android:parentActivityName="com.example.intsys.SessionActivity"
             android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="SessionActivity" />
         </activity>
     </application>
 
