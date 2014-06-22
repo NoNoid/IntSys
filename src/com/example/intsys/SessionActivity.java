@@ -48,8 +48,8 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
     	
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
     	
-    	builder.setMessage("AlertMessage")
-        .setTitle("AlertTitle");
+    	builder.setMessage(R.string.leaveCurrentSessionAlertMessage)
+        .setTitle(R.string.leaveCurrentSessionAlertTitle);
 
     	
     	builder.setPositiveButton(R.string.alert_ok, new DialogInterface.OnClickListener() {
@@ -135,11 +135,15 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            if(checkIfUserWantsToExit()) {
-            	super.onKeyDown(keyCode, event);
-            }else {
-            	return true;
-            }
+        	if(DataSingleton.getInstance().checkIfCurrentSessionExists()) {
+	        	if(checkIfUserWantsToExit()) {
+	            		super.onKeyDown(keyCode, event);
+	            }else {
+	            	return true;
+	            }
+        	}else{
+        		super.onKeyDown(keyCode, event);
+        	}
         }
 
         return super.onKeyDown(keyCode, event);
@@ -164,8 +168,12 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
         }
         
         if (id == R.id.action_end_Session) {
-        	if(checkIfUserWantsToExit())
+        	if(DataSingleton.getInstance().checkIfCurrentSessionExists())
         	{
+        		if(checkIfUserWantsToExit()) {
+        			this.finish();
+        		}
+        	}else{
         		this.finish();
         	}
         }

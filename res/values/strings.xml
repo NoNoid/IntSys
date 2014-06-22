@@ -33,5 +33,7 @@
 	<string name="createSessionPersonNameEditHintText">Max Mustermann</string>
 	<string name="title_tab_series_browser">Targets</string>
 	<string name="menuOptionViewSessionHistory">View Session History</string>
+	<string name="leaveCurrentSessionAlertTitle">Really End This Session?</string>
+	<string name="leaveCurrentSessionAlertMessage">This will end the current Session and put in the Session History</string>
 	
 </resources>
