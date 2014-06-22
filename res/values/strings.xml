@@ -33,5 +33,12 @@
 	<string name="createSessionPersonNameEditHintText">Max Mustermann</string>
 	<string name="title_tab_series_browser">Targets</string>
 	<string name="menuOptionViewSessionHistory">View Session History</string>
+	<string-array name="createSession_Type_selections">
+	    <item>Training</item>
+        <item>district Championship</item>
+        <item>regional Championship</item>
+        <item>national Championship</item>
+        <item>international Championship</item>
+	</string-array>
 	
 </resources>
