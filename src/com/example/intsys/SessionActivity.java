@@ -110,7 +110,12 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
         
         if (id == R.id.action_end_Session) {
         	this.finish();
-        }        
+        }
+        
+        if (id == R.id.action_view_SessionHistory) {
+			Intent intent = new Intent(this, SessionListActivity.class);
+			startActivity(intent);
+        } 
         
         return super.onOptionsItemSelected(item);
     }
