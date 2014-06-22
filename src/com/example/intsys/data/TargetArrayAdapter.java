@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.example.intsys.R;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,21 +50,26 @@ public class TargetArrayAdapter extends ArrayAdapter<Target> {
 			}
 			if(info1 != null)
 			{
-				info1.setText("Max: " + targetList.get(position).max);
+				info1.setText(Html.fromHtml("<u>Max:</u><br>" + targetList.get(position).max));
 			}
 			if(info2 != null)
 			{
-				info2.setText("Mean: " + targetList.get(position).mean);
+				info2.setText(Html.fromHtml("<u>Mean:</u><br>" + targetList.get(position).mean));
 			}
-			if(info3 != null)
-			{
-				info3.setText("Windage: " + targetList.get(position).windage);
-			}
-			if(info4 != null)
-			{
-				info4.setText("Elevation: " + targetList.get(position).elevation);
-			}
+//			if(info3 != null)
+//			{
+//				info3.setText(Html.fromHtml("<u>Windage:</u><br>" + targetList.get(position).windage));
+//			}
+//			if(info4 != null)
+//			{
+//				info4.setText(Html.fromHtml("<u>Elevation:</u><br>" + targetList.get(position).elevation));
+//			}
+			
+			info3.setVisibility(android.view.View.GONE);
+			info4.setVisibility(android.view.View.GONE);
+			
 		}
+
 
 		// the view must be returned to our activity
 		return v;

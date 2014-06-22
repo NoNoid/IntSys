@@ -48,5 +48,6 @@
 	<string name="activity_title_SessionList">Shooting Diary</string>
 	<string name="activity_title_Details">Details</string>
 	<string name="activity_title_CreateSession">Create new Session</string>
+	<string name="activity_title_ResultActivity">Edit your shots</string>
 	
 </resources>

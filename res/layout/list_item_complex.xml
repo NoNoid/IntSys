@@ -9,7 +9,7 @@
         android:id="@+id/imageView1"
         android:layout_width="74dp"
         android:layout_height="74dp"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/zielscheibe_bw" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -21,10 +21,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Wettkampf XY"
             android:textColor="#000000"
-            android:textStyle="bold"
-            android:textSize="@dimen/list_item_title_height" />
+            android:textSize="@dimen/list_item_title_height"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -35,16 +34,15 @@
                 android:id="@+id/list_content_info1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="12.09.14" />
+                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/list_content_info2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:layout_weight="1"
-                android:text="Max Score: 10,0" />
+                android:layout_weight="1" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -58,16 +56,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:layout_weight="1"
-                android:text="Schützenhaus XY" />
+                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/list_content_info4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:layout_weight="1"
-                android:text="Mean Score: 8,9" />
+                android:layout_weight="1" />
 
         </LinearLayout>
 

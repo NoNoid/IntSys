@@ -25,7 +25,7 @@ public class Target {
 	public Target(Random randomGenerator) {
 		windage = randomGenerator.nextFloat();
 		elevation = randomGenerator.nextFloat();
-		mean = randomGenerator.nextFloat();
-		max = randomGenerator.nextFloat();
+		mean = randomGenerator.nextFloat()*11;
+		max = randomGenerator.nextFloat()*11;
 	}
 }

@@ -30,6 +30,7 @@ public class ResultActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_result);
+		setTitle(getResources().getString(R.string.activity_title_ResultActivity));
 
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()

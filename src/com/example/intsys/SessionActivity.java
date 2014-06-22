@@ -81,8 +81,6 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session);
-        
-        setTitle(getResources().getString(R.string.activity_title_SessionActivity));
 
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
@@ -90,6 +88,27 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
         
         // get Index of Session selected in SessionList
         sessionIdx = getIntent().getIntExtra("SessionIdx", -1);
+        
+        DataSingleton ds = DataSingleton.getInstance();
+        ds.getCurrentSession();
+        
+        if(sessionIdx < 0)
+        {
+        	if(sessionIdx == -3)
+        	{
+        		setTitle("new Session");
+        	}
+        	else
+        	{
+        		setTitle(getResources().getString(R.string.activity_title_SessionActivity));
+        	}
+        }
+        else
+        {
+        	Session session = ds.getSessionHistory().getSession(sessionIdx);
+        	setTitle(session.title + " " + (ds.getSessionHistory().getNumberOfSessions()-sessionIdx));
+        }
+      
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();

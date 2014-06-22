@@ -3,6 +3,8 @@ package com.example.intsys;
 import com.example.intsys.Fragments.Fragment_statisitcs;
 import com.example.intsys.Fragments.SessionList;
 import com.example.intsys.Fragments.TargetList;
+import com.example.intsys.data.DataSingleton;
+import com.example.intsys.data.Session;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -32,10 +34,12 @@ public class SeriesActivity extends TabActivity
     	super.onCreate(savedInstanceState);
 //        mNavigationDrawerFragment = (NavigationDrawerFragment)
 //                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getResources().getString(R.string.activity_title_SeriesActivity);
-        setTitle(mTitle);
+        
         m_seriesNr = getIntent().getIntExtra("SeriesNr", -1);
         m_sessionIdx = getIntent().getIntExtra("SessionIdx", -1);
+        
+        mTitle = "SeriesNr. " + (m_seriesNr +1);
+        setTitle(mTitle);        
 	    
     }
       

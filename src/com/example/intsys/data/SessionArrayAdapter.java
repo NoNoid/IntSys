@@ -1,5 +1,6 @@
 package com.example.intsys.data;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -16,11 +17,13 @@ import android.widget.TextView;
 public class SessionArrayAdapter extends ArrayAdapter<Session> {
 
 	private ArrayList<Session> sessionList = new ArrayList<Session>();
+	private int mNum_Series = 0;
 	
 	public SessionArrayAdapter(Context context, int resource,
 			ArrayList<Session> objects) {
 		super(context, resource, objects);
 		sessionList = objects;
+		mNum_Series = sessionList.size();
 	}
 	
 	public View getView(int position, View convertView, ViewGroup parent){
@@ -47,7 +50,7 @@ public class SessionArrayAdapter extends ArrayAdapter<Session> {
 			
 			if(title != null)
 			{
-				title.setText("SessionNr. "+(position+1));
+				title.setText(session.title + " " + (mNum_Series - position));
 			}
 			if(info1 != null)
 			{
@@ -82,7 +85,9 @@ public class SessionArrayAdapter extends ArrayAdapter<Session> {
 			}
 			if(info4 != null)
 			{
-				info4.setText(Html.fromHtml("<u>Mean:</u><br> " + session.getMean()));
+				DecimalFormat form = new DecimalFormat("0.00");
+				String formattedText = form.format(sessionList.get(position).getMean());
+				info4.setText(Html.fromHtml("<u>Mean:</u><br> " + formattedText));
 			}
 		}
 

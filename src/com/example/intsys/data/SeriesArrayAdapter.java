@@ -1,11 +1,13 @@
 package com.example.intsys.data;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.example.intsys.R;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,21 +48,25 @@ public class SeriesArrayAdapter extends ArrayAdapter<Series> {
 			{
 				title.setText("SeriesNr. " + (position+1));
 			}
-			if(info1 != null)
-			{
-				info1.setText("Max: " + seriesList.get(position).getMax());
-			}
-			if(info2 != null)
-			{
-				info2.setText("Mean: " + seriesList.get(position).getMean());
-			}
 			if(info3 != null)
 			{
-				info3.setText("Pose: " + seriesList.get(position).getPose());
+				DecimalFormat form = new DecimalFormat("0.0");
+				String formattedText = form.format(seriesList.get(position).getMax());
+				info3.setText(Html.fromHtml("<u>Max:</u><br>" + formattedText));
 			}
 			if(info4 != null)
 			{
-				info4.setText("#Targets: " + seriesList.get(position).getNumberOfTargets());
+				DecimalFormat form = new DecimalFormat("0.00");
+				String formattedText = form.format(seriesList.get(position).getMean());
+				info4.setText(Html.fromHtml("<u>Mean:</u><br>" + formattedText));
+			}
+			if(info1 != null)
+			{
+				info1.setText(Html.fromHtml("<u>Pose:</u><br>" + seriesList.get(position).getPose()));
+			}
+			if(info2 != null)
+			{
+				info2.setText(Html.fromHtml("<u>#Targets:</u><br>" + seriesList.get(position).getNumberOfTargets()));
 			}
 		}
 
