@@ -4,6 +4,7 @@
 package com.example.intsys.data;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
@@ -30,7 +31,7 @@ public class Session {
 	public String ShooterName;
 	public String place;
 	public SessionType type;
-	public Date date;
+	public Calendar date;
 	
 	public Series getSeries(int i) {
 		return mSeries.get(i);
@@ -76,7 +77,7 @@ public class Session {
 	}
 	
 	public Session(String title, String ShooterName, String place, SessionType type) {
-		date = new Date();
+		date = Calendar.getInstance();
 		this.title = title;
 		this.ShooterName = ShooterName;
 		this.place = place;
@@ -84,7 +85,7 @@ public class Session {
 		mSeries = new ArrayList<Series>(MINIMUM_CAPACITY_FOR_EMPTY_SESSION);
 	}
 	
-	public Session(String ShooterName ,String place, Date date, int numberOfSeries, int maxNumberOfTargets, Random randomGenerator) {
+	public Session(String ShooterName ,String place, Calendar date, int numberOfSeries, int maxNumberOfTargets, Random randomGenerator) {
 		this.title = "RandomGenerated";
 		this.date = date;
 		this.ShooterName = ShooterName;

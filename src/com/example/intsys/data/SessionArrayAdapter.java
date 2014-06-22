@@ -1,6 +1,7 @@
 package com.example.intsys.data;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import com.example.intsys.R;
 
@@ -50,7 +51,7 @@ public class SessionArrayAdapter extends ArrayAdapter<Session> {
 			}
 			if(info1 != null)
 			{
-				info1.setText(Html.fromHtml("<u>Date:</u><br>" + session.date.getDate() + "/" +  session.date.getMonth() + "/" + session.date.getYear()));
+				info1.setText(Html.fromHtml("<u>Date:</u><br>" + session.date.get(Calendar.DAY_OF_MONTH) + "/" +  session.date.get(Calendar.MONTH) + "/" + session.date.get(Calendar.YEAR)));
 			}
 			if(info2 != null)
 			{
