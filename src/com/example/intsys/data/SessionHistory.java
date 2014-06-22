@@ -34,7 +34,7 @@ public class SessionHistory {
 			Date date = new Date();
 			date.setTime(date.getTime()-Math.min(randomGenerator.nextLong(),10000));
 			
-			int numberOfSeries = 1 + (randomGenerator.nextInt(15)-1);
+			int numberOfSeries = 5 + (randomGenerator.nextInt(15));
 			
 			mSessions.add(new Session("Max Mustermann", "Muaterhausen",date, numberOfSeries, 10, randomGenerator));
 		}

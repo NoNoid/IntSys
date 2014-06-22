@@ -40,5 +40,7 @@
         <item>national Championship</item>
         <item>international Championship</item>
 	</string-array>
+	<string name="leaveCurrentSessionAlertTitle">Really End This Session?</string>
+	<string name="leaveCurrentSessionAlertMessage">This will end the current Session and put in the Session History</string>
 	
 </resources>

@@ -92,7 +92,7 @@ public class Session {
 		this.type = SessionType.values()[randomGenerator.nextInt(5)];
 		mSeries = new ArrayList<Series>(numberOfSeries);
 		for(int i = 0; i < numberOfSeries; ++i) {
-			int numberOfTargets = 1+(randomGenerator.nextInt(maxNumberOfTargets)-1);
+			int numberOfTargets = 5+(randomGenerator.nextInt(maxNumberOfTargets));
 			mSeries.add(new Series(numberOfTargets, randomGenerator));
 		}
 	}
