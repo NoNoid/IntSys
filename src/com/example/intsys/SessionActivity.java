@@ -1,12 +1,9 @@
 package com.example.intsys;
 
-import com.example.intsys.Fragments.Fragment_statisitcs;
-import com.example.intsys.Fragments.SeriesList;
-import com.example.intsys.data.DataSingleton;
-import com.example.intsys.data.Session;
-
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +11,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,10 +19,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.example.intsys.Fragments.Fragment_statisitcs;
+import com.example.intsys.Fragments.SeriesList;
+import com.example.intsys.data.DataSingleton;
+import com.example.intsys.data.Session;
 
 public class SessionActivity extends FragmentActivity implements ActionBar.TabListener {
 
 	private int sessionIdx = -1;
+	
+	private boolean UserWantsToExit = false;
 	
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
@@ -39,7 +43,41 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
      * time.
      */
     ViewPager mViewPager;
+    
+    public boolean checkIfUserWantsToExit() {
+    	
+    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    	
+    	builder.setMessage("AlertMessage")
+        .setTitle("AlertTitle");
 
+    	
+    	builder.setPositiveButton(R.string.alert_ok, new DialogInterface.OnClickListener() {
+    	           public void onClick(DialogInterface dialog, int id) {
+    	        	   UserWantsToExit = true;
+    	           }
+    	       });
+    	builder.setNegativeButton(R.string.alert_cancel, new DialogInterface.OnClickListener() {
+    	           public void onClick(DialogInterface dialog, int id) {
+    	        	   UserWantsToExit = false;    	        	   
+    	           }
+    	       });
+    	
+    	AlertDialog dialog = builder.create();
+    	dialog.show();
+    	
+	    return UserWantsToExit;
+    }
+
+    @Override
+    public void onWindowFocusChanged (boolean hasFocus){
+    	if(UserWantsToExit && hasFocus)
+    	{
+    		finish();
+    	}
+    	super.onWindowFocusChanged(hasFocus);
+    }
+    
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session);
@@ -95,6 +133,19 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
     }
     
     @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            if(checkIfUserWantsToExit()) {
+            	super.onKeyDown(keyCode, event);
+            }else {
+            	return true;
+            }
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+    
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
     	if(DataSingleton.getInstance().checkIfCurrentSessionExists())
         	getMenuInflater().inflate(R.menu.session, menu);
@@ -113,7 +164,10 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
         }
         
         if (id == R.id.action_end_Session) {
-        	this.finish();
+        	if(checkIfUserWantsToExit())
+        	{
+        		this.finish();
+        	}
         }
         
         if (id == R.id.action_view_SessionHistory) {
