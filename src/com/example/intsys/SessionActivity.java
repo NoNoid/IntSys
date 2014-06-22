@@ -96,7 +96,11 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.session, menu);
+    	if(DataSingleton.getInstance().checkIfCurrentSessionExists())
+        	getMenuInflater().inflate(R.menu.session, menu);
+    	else
+    		getMenuInflater().inflate(R.menu.session_without_current_session, menu);
+    	
         return true;
     }
 
