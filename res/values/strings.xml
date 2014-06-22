@@ -29,5 +29,9 @@
 	<string name="alert_cancel">Cancel</string>
 	<string name="alert_title">Warning</string>
 	<string name="alert_message">Are you sure to delete this item?</string>
+	<string name="createSessionPersonNameTextViewText">Name:</string>
+	<string name="createSessionPersonNameEditHintText">Max Mustermann</string>
+	<string name="title_tab_series_browser">Targets</string>
+	<string name="menuOptionViewSessionHistory">View Session History</string>
 	
 </resources>
