@@ -81,6 +81,8 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session);
+        
+        setTitle(getResources().getString(R.string.activity_title_SessionActivity));
 
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.

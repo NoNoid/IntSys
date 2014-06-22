@@ -14,6 +14,7 @@ import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Fragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -99,6 +100,8 @@ public class ResultActivity extends Activity {
 	        		            	Session curSession = privData.getCurrentSession();
 	        		            	if(which == 0)
 	        		            	{
+//	        		            		Intent intent = new Intent(getActivity(), CreateSeriesActivity.class);
+//	        		            		getActivity().startActivity(intent);
 	        		            		curSession.addSeries(new Series(Series.ShootingPose.PRONE));
 	        		            		curSession.getSeries(curSession.getNumberOfSeries()-1).addTarget(new Target(new Random()));
 	        		            	}

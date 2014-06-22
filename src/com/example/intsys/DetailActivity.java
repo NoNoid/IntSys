@@ -17,6 +17,8 @@ public class DetailActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detail);
+		
+		setTitle(getResources().getString(R.string.activity_title_Details));
 
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()

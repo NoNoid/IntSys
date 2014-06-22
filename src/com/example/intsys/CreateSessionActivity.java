@@ -34,6 +34,8 @@ public class CreateSessionActivity extends FragmentActivity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_session);
+		
+		setTitle(getResources().getString(R.string.activity_title_CreateSession));
 
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()

@@ -44,7 +44,7 @@ public class SeriesArrayAdapter extends ArrayAdapter<Series> {
 			
 			if(title != null)
 			{
-				title.setText("SeriesNr. " + position);
+				title.setText("SeriesNr. " + (position +1));
 			}
 			if(info1 != null)
 			{

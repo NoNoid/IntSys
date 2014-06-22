@@ -30,7 +30,8 @@ public class SessionListActivity extends TabActivity
     	super.onCreate(savedInstanceState);
 //        mNavigationDrawerFragment = (NavigationDrawerFragment)
 //                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
+        mTitle = getResources().getString(R.string.activity_title_SessionList);
+        setTitle(mTitle);
 
         // Set up the drawer.
 //        mNavigationDrawerFragment.setUp(

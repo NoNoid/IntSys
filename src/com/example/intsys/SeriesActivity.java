@@ -32,7 +32,8 @@ public class SeriesActivity extends TabActivity
     	super.onCreate(savedInstanceState);
 //        mNavigationDrawerFragment = (NavigationDrawerFragment)
 //                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
+        mTitle = getResources().getString(R.string.activity_title_SeriesActivity);
+        setTitle(mTitle);
         m_seriesNr = getIntent().getIntExtra("SeriesNr", -1);
         m_sessionIdx = getIntent().getIntExtra("SessionIdx", -1);
 	    
