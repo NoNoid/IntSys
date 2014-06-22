@@ -45,7 +45,7 @@ public class TargetArrayAdapter extends ArrayAdapter<Target> {
 			
 			if(title != null)
 			{
-				title.setText("TargetNr. " + position);
+				title.setText("TargetNr. " + (position+1));
 			}
 			if(info1 != null)
 			{

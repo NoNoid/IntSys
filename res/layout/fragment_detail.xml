@@ -13,68 +13,14 @@
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        android:layout_weight="3"
         android:src="@drawable/zielscheibe_bw" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_height="wrap_content"
         android:orientation="vertical" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/details_text_side_margin"
-            android:layout_marginRight="@dimen/details_text_side_margin"
-            android:layout_marginTop="@dimen/details_text_vertical_margin" >
-
-            <TextView
-                android:id="@+id/detailMaxText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_weight="1"
-                android:text="@string/detailMaxText"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <TextView
-                android:id="@+id/detailMeanText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="0dp"
-                android:layout_weight="1"
-                android:text="@string/detailMeanText"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/details_text_side_margin"
-            android:layout_marginRight="@dimen/details_text_side_margin"
-            android:layout_marginTop="@dimen/details_text_vertical_margin" >
-
-            <TextView
-                android:id="@+id/detailElevationText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/detailElevationText"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <TextView
-                android:id="@+id/detailWindageText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:layout_weight="1"
-                android:text="@string/detailWindageText"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-        </LinearLayout>
 
         <TextView
             android:id="@+id/detailScoresText"
@@ -94,6 +40,58 @@
             android:layout_marginRight="@dimen/details_text_side_margin"
             android:layout_marginTop="@dimen/details_text_vertical_margin"
             android:text="@string/detailTotalScoreText"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/details_text_side_margin"
+        android:layout_marginRight="@dimen/details_text_side_margin"
+        android:layout_marginTop="@dimen/details_text_vertical_margin" >
+
+        <TextView
+            android:id="@+id/detailMaxText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1.1"
+            android:text="@string/detailMaxText"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/detailWindageText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="2"
+            android:text="@string/detailWindageText"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/details_text_side_margin"
+        android:layout_marginRight="@dimen/details_text_side_margin"
+        android:layout_marginTop="@dimen/details_text_vertical_margin" >
+
+        <TextView
+            android:id="@+id/detailMeanText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="0dp"
+            android:layout_weight="1"
+            android:text="@string/detailMeanText"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/detailElevationText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/detailElevationText"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
 

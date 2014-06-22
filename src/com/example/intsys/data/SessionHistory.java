@@ -39,7 +39,7 @@ public class SessionHistory {
 			
 			int numberOfSeries = 5 + (randomGenerator.nextInt(15));
 			
-			mSessions.add(new Session("Max Mustermann", "Muaterhausen",date, numberOfSeries, 10, randomGenerator));
+			mSessions.add(new Session("Max Mustermann", "Musterhausen",date, numberOfSeries, 10, randomGenerator));
 		}
 	}
 }
