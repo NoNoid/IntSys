@@ -43,7 +43,7 @@ public class SeriesActivity extends TabActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
     	super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.man_bar_entries, menu);;
+        getMenuInflater().inflate(R.menu.series, menu);;
         return true;
     }
 
