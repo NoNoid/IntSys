@@ -1,5 +1,6 @@
 package com.example.intsys;
 
+import com.example.intsys.Fragments.Fragment_statisitcs;
 import com.example.intsys.Fragments.SeriesList;
 import com.example.intsys.data.DataSingleton;
 import com.example.intsys.data.Session;
@@ -152,7 +153,7 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
                 }
                 case 1:
                 {
-                    Fragment fragment = new SessionOptionsMockUpFragment();
+                    Fragment fragment = new Fragment_statisitcs();
                     Bundle args = new Bundle();
                     fragment.setArguments(args);
                     return fragment;

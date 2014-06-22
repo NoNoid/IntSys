@@ -98,7 +98,7 @@ public class SeriesActivity extends TabActivity
         	switch(position)
             {
             case 0:
-            	title = getString(R.string.title_tab_session_browser);
+            	title = getString(R.string.title_tab_series_browser);
             	break;
             case 1:
             	title = getString(R.string.title_tab_statistics);
