@@ -2,6 +2,7 @@ package com.example.intsys;
 
 import com.example.intsys.Fragments.Fragment_statisitcs;
 import com.example.intsys.Fragments.SessionList;
+import com.example.intsys.data.DataSingleton;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -43,7 +44,10 @@ public class SessionListActivity extends TabActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
     	super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.man_bar_entries, menu);;
+    	if(DataSingleton.getInstance().checkIfCurrentSessionExists())
+    		getMenuInflater().inflate(R.menu.man_bar_entries_without_create_new_session, menu);
+    	else
+    		getMenuInflater().inflate(R.menu.man_bar_entries, menu);
         return true;
     }
 
