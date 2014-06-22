@@ -2,16 +2,84 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical|center_horizontal"
+    android:gravity="top"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <ImageView
+        android:id="@+id/statMockUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="Statistics"
-        android:textAlignment="center"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/statistics" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/detailTotalScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/details_text_side_margin"
+            android:layout_marginRight="@dimen/details_text_side_margin"
+            android:layout_marginTop="@dimen/details_text_vertical_margin"
+            android:text="@string/detailTotalScoreTextStats"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/details_text_side_margin"
+            android:layout_marginRight="@dimen/details_text_side_margin"
+            android:layout_marginTop="@dimen/details_text_vertical_margin" >
+
+            <TextView
+                android:id="@+id/detailMaxText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_weight="0.7"
+                android:text="@string/detailMaxText"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/detailWindageText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_weight="2"
+                android:text="@string/detailWindageText"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/details_text_side_margin"
+            android:layout_marginRight="@dimen/details_text_side_margin"
+            android:layout_marginTop="@dimen/details_text_vertical_margin" >
+
+            <TextView
+                android:id="@+id/detailMeanText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="0dp"
+                android:layout_weight="3"
+                android:text="@string/detailMeanText"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/detailElevationText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/detailElevationText"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

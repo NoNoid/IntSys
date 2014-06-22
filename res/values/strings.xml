@@ -18,10 +18,10 @@
     <string name="title_activity_result">ResultActivity</string>
     <string name="commitResultButtonName">OK</string>
     <string name="title_activity_detail">DetailActivity</string>
-    <string name="detailMeanText">Mean: 1</string>
-    <string name="detailMaxText">Max: 1</string>
-    <string name="detailWindageText">Windage: 1</string>
-    <string name="detailElevationText">Elevation: 1</string>
+    <string name="detailMeanText">Mean: 7.4</string>
+    <string name="detailMaxText">Max: 9</string>
+    <string name="detailWindageText">Windage: 0.4</string>
+    <string name="detailElevationText">Elevation: 0.5</string>
     <string name="detailTotalScoreText">Total Score: 60</string>
     <string name="detailScoresText">Scores: 10 10 10 10 10</string>
     <string name="title_activity_series">SeriesActivity</string>
@@ -34,6 +34,7 @@
 	<string name="title_tab_series_browser">Targets</string>
 	<string name="menuOptionViewSessionHistory">View Session History</string>
 	<string name="leaveCurrentSessionAlertTitle">Really End This Session?</string>
-	<string name="leaveCurrentSessionAlertMessage">This will end the current Session and put in the Session History</string>
+	<string name="leaveCurrentSessionAlertMessage">This will end the current Session and put in the Session History</string> 
+	<string name="detailTotalScoreTextStats">Total Score: 145</string>
 	
 </resources>

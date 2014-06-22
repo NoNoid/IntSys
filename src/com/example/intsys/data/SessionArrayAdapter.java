@@ -47,7 +47,7 @@ public class SessionArrayAdapter extends ArrayAdapter<Session> {
 			
 			if(title != null)
 			{
-				title.setText(session.title);
+				title.setText("SessionNr. "+(position+1));
 			}
 			if(info1 != null)
 			{
