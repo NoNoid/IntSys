@@ -2,7 +2,11 @@ package com.example.intsys;
 
 import android.app.Activity;
 import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.Fragment;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -43,10 +47,8 @@ public class ResultActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
+	
+	
 	public static class PlaceholderFragment extends Fragment {
 
 		public PlaceholderFragment() {
@@ -62,7 +64,30 @@ public class ResultActivity extends Activity {
 				new View.OnClickListener() {
 	        		@Override
 	        		public void onClick(View view) {
-	        			getActivity().finish();
+	        			
+	        			AlertDialog.Builder b = new Builder(getActivity());
+	        		    b.setTitle("Add to Series");
+	        		    String[] types = {"Nr 1", "Nr 2", "Nr 3","Nr 4","Nr 5","Nr 6","Nr 7","Nr 8","Nr 9","Nr 10","Nr 11","Nr 12","Nr 13","Nr 14","Nr 15","Nr 16"};
+	        		    b.setItems(types, new OnClickListener() {
+
+	        		        @Override
+	        		        public void onClick(DialogInterface dialog, int which) {
+
+	        		            dialog.dismiss();
+	        		            switch(which){
+	        		            case 0:
+	        		                //onZipRequested();
+	        		                break;
+	        		            case 1:
+	        		                //onCategoryRequested();
+	        		                break;
+	        		            }
+	        		            getActivity().finish();
+	        		        }
+
+	        		    });
+
+	        		    b.show();
 	        		}
 	    		}							
 			);

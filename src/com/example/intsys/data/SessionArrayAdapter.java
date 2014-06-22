@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.example.intsys.R;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,23 +46,42 @@ public class SessionArrayAdapter extends ArrayAdapter<Session> {
 			
 			if(title != null)
 			{
-				title.setText("TargetNr. " + position);
+				title.setText("SessionNr. " + position);
 			}
 			if(info1 != null)
 			{
-				info1.setText("Date: " + session.date);
+				info1.setText(Html.fromHtml("<u>Date:</u><br>" + session.date.getDate() + "/" +  session.date.getMonth() + "/" + session.date.getYear()));
 			}
 			if(info2 != null)
 			{
-				info2.setText("Name: " + session.ShooterName);
+				info2.setText(Html.fromHtml("<u>Location:</u> " + session.place));
 			}
 			if(info3 != null)
 			{
-				info3.setText("#Series: " + session.getNumberOfSeries());
+				String type = "";
+				switch(session.type)
+				{
+				case Training:
+					type = "Training";
+					break;
+				case districtChampinship:
+					type = "district Championchip";
+					break;
+				case regionalChampionship:
+					type = "regional Championship";
+					break;
+				case nationalChampionship:
+					type = "national Championship";
+					break;
+				case internationalChampionship:
+					type = "international Championship";
+					break;
+				}
+				info3.setText(Html.fromHtml("<u>Type:</u><br>" + type));
 			}
 			if(info4 != null)
 			{
-				info4.setText("Max: " + 0);
+				info4.setText(Html.fromHtml("<u>Mean:</u><br> " + session.getMean()));
 			}
 		}
 

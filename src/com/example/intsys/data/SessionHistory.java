@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
+import com.example.intsys.data.Session.SessionType;
+
 /**
  * @author NoNoid
  *
@@ -34,7 +36,7 @@ public class SessionHistory {
 			
 			int numberOfSeries = 1 + (randomGenerator.nextInt(15)-1);
 			
-			mSessions.add(new Session("Max Mustermann",date, numberOfSeries, 10, randomGenerator));
+			mSessions.add(new Session("Max Mustermann", "Muaterhausen",date, numberOfSeries, 10, randomGenerator));
 		}
 	}
 }
