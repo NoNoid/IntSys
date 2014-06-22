@@ -4,6 +4,7 @@
 package com.example.intsys.data;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
@@ -31,8 +32,10 @@ public class SessionHistory {
 	public SessionHistory(int numberOfSessions, Random randomGenerator) {
 		mSessions = new ArrayList<Session>(numberOfSessions);
 		for(int i = 0; i < numberOfSessions; ++i) {
-			Date date = new Date();
-			date.setTime(date.getTime()-Math.min(randomGenerator.nextLong(),10000));
+			Calendar date = Calendar.getInstance();
+			date.set(Calendar.YEAR,date.get(Calendar.YEAR)-randomGenerator.nextInt(10));
+			date.set(Calendar.MONTH,1+randomGenerator.nextInt(9));
+			date.set(Calendar.DAY_OF_MONTH,1+randomGenerator.nextInt(20));
 			
 			int numberOfSeries = 5 + (randomGenerator.nextInt(15));
 			
