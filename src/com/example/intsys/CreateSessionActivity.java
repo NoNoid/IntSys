@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.doomonafireball.betterpickers.calendardatepicker.CalendarDatePickerDialog;
 import com.example.intsys.data.DataSingleton;
@@ -93,7 +94,8 @@ public class CreateSessionActivity extends FragmentActivity{
 	        		@Override
 	        		public void onClick(View view) {
 	        			DataSingleton data = DataSingleton.getInstance();
-	        			data.createNewSession(personNameEditText.getText().toString(), SessionDate.getTime());
+	        			data.createNewCurrentSession(personNameEditText.getText().toString(), SessionDate.getTime());
+	            		Toast.makeText(getActivity(), "Current Session Begin", Toast.LENGTH_LONG).show();
             			Intent intent = new Intent(getActivity(), SessionActivity.class);
             			getActivity().startActivity(intent);
 	        		}

@@ -1,6 +1,9 @@
 package com.example.intsys;
 
 import com.example.intsys.Fragments.SeriesList;
+import com.example.intsys.data.DataSingleton;
+import com.example.intsys.data.Session;
+
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -78,6 +81,18 @@ public class SessionActivity extends FragmentActivity implements ActionBar.TabLi
                             .setTabListener(this));
         }
     }
+    
+    @Override
+    public void onDestroy() {
+    	DataSingleton data = DataSingleton.getInstance();
+    	if(data.checkIfCurrentSessionExists()) {
+    		Session OldSession = data.EndCurrentSession();
+    		data.getSessionHistory().addSession(OldSession);
+    		Toast.makeText(this, "Current Session Ended", Toast.LENGTH_LONG).show();
+    	}
+    	super.onDestroy();
+    }
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.session, menu);
