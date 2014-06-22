@@ -74,17 +74,23 @@ public class SeriesList extends ListFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		//return super.onCreateView(inflater, container, savedInstanceState);
         
-		View rootView = inflater.inflate(R.layout.fragment_list_bottombutton, container, false);
-		
-		rootView.findViewById(R.id.cameraButton).setOnClickListener(
-			new View.OnClickListener() {
-        		@Override
-        		public void onClick(View view) {
-        			Intent intent = new Intent(getActivity(), CameraActivity.class);
-        			getActivity().startActivity(intent);
-        		}
-    		}							
-		);
+		View rootView;
+		if(DataSingleton.getInstance().checkIfCurrentSessionExists()) {
+			rootView = inflater.inflate(R.layout.fragment_list_bottombutton, container, false);
+			
+			rootView.findViewById(R.id.cameraButton).setOnClickListener(
+					new View.OnClickListener() {
+		        		@Override
+		        		public void onClick(View view) {
+		        			Intent intent = new Intent(getActivity(), CameraActivity.class);
+		        			getActivity().startActivity(intent);
+		        		}
+		    		}							
+				);
+			
+		}else {
+			rootView = inflater.inflate(R.layout.fragment_list, container, false);
+		}
 		
 		ListView seriesListView = (ListView) rootView.findViewById(android.R.id.list);
 		seriesListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
